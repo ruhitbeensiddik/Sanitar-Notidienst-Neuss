@@ -7,6 +7,7 @@ import EmergencyServiceSection from "../../../components/modules/Home/EmergencyS
 import DrainCleaningSection from "../../../components/modules/Home/DrainCleaningSection";
 import MaintenanceRepairSection from "../../../components/modules/Home/MaintenanceRepairSection";
 import DrainCleaning24hSection from "../../../components/modules/Home/DrainCleaning24hSection";
+import PlumbingServiceComponent from "../../../components/modules/Home/PlumbingServiceComponent";
 
 const HomePage = () => {
   return (
@@ -26,6 +27,7 @@ const HomePage = () => {
       <DrainCleaningSection />
       <MaintenanceRepairSection />
       <DrainCleaning24hSection />
+      <PlumbingServiceComponent />
     </div>
   );
 };
