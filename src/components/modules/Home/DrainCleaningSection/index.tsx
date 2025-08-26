@@ -5,7 +5,7 @@ import { ArrowDownRightIcon } from "lucide-react";
 
 export default function DrainCleaningSection() {
   return (
-    <section className="py-16 lg:py-20 bg-gray-50">
+    <section className="py-16 lg:py-20 bg-[#EFEFEF]">
       <div className="container max-w-6xl mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left Content */}

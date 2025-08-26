@@ -5,6 +5,8 @@ import ServicesSection from "../../../components/modules/Home/ServicesSection";
 import WCInstallationSection from "../../../components/modules/Home/WCInstallationSection";
 import EmergencyServiceSection from "../../../components/modules/Home/EmergencyServiceSection";
 import DrainCleaningSection from "../../../components/modules/Home/DrainCleaningSection";
+import MaintenanceRepairSection from "../../../components/modules/Home/MaintenanceRepairSection";
+import DrainCleaning24hSection from "../../../components/modules/Home/DrainCleaning24hSection";
 
 const HomePage = () => {
   return (
@@ -22,6 +24,8 @@ const HomePage = () => {
       <WCInstallationSection />
       <EmergencyServiceSection />
       <DrainCleaningSection />
+      <MaintenanceRepairSection />
+      <DrainCleaning24hSection />
     </div>
   );
 };
