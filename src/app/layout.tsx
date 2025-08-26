@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "sonner";
-import { Poppins } from "next/font/google";
+import { Poppins, Open_Sans } from "next/font/google";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-poppins",
 });
 
-const poppinsClassName: string = poppins.className;
+const openSans = Open_Sans({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-open-sans",
+});
 
 export const metadata: Metadata = {
   title: "sanitar-notidienst-neuss",
@@ -17,7 +23,7 @@ export const metadata: Metadata = {
   keywords: ["Plumber werbsite"],
   referrer: "origin-when-cross-origin",
   robots: "index, follow",
-  publisher: "Ishtiak's LTD",
+  publisher: "Ruhit's LTD",
   authors: [
     {
       name: "Ruhit Been SIddik",
@@ -34,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppinsClassName}`}>
+      <body className={`${poppins.variable} ${openSans.variable}`}>
         {children}
         <Toaster position="top-center" />
       </body>
