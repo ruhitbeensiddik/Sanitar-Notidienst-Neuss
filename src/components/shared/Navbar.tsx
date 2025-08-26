@@ -24,6 +24,8 @@ import {
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+import logo from "../../assets/jungkind-iconotdienst_sanitaer_favicon_1.png";
 
 // Social media icons as React components
 const FacebookIcon = () => (
@@ -184,11 +186,16 @@ export default function Navbar() {
             {/* Logo */}
             <div className="flex items-center">
               <Link href="/" className="flex items-center gap-2">
-                <div className="bg-orange-500 rounded-full p-2">
-                  <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">S</span>
-                  </div>
+                <div className="w-10 h-10  flex items-center justify-center overflow-hidden">
+                  <Image
+                    src={logo}
+                    alt="product image"
+                    width={32} // match the container size
+                    height={32}
+                    className="rounded-full object-cover"
+                  />
                 </div>
+
                 <div>
                   <h1 className="text-2xl font-bold text-blue-600">
                     Sanitär<span className="text-orange-500">+</span>
