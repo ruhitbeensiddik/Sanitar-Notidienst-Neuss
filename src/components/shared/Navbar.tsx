@@ -10,6 +10,7 @@ import {
   Clock,
   User,
   Menu,
+  X,
 } from "lucide-react";
 import Container from "./Container";
 import {
@@ -25,6 +26,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import logo from "../../assets/jungkind-iconotdienst_sanitaer_favicon_1.png";
+import { useState } from "react";
 
 // Social media icons as React components
 const FacebookIcon = () => (
@@ -80,11 +82,49 @@ const NavigationLink = ({
   );
 };
 
+// Mobile Navigation Link component
+interface MobileNavLinkProps {
+  route: string;
+  path: string;
+  onClick: () => void;
+  className?: string;
+}
+
+const MobileNavigationLink = ({
+  route,
+  path,
+  onClick,
+  className = "",
+}: MobileNavLinkProps) => {
+  const pathname = usePathname();
+  const isActive = pathname === path;
+
+  return (
+    <Link
+      href={path}
+      onClick={onClick}
+      className={`
+        px-6 py-4 text-left font-semibold border-b border-blue-700 hover:bg-blue-700 transition-colors
+        ${isActive ? "bg-orange-500 hover:bg-orange-600" : "bg-blue-600"}
+        text-white ${className}
+      `}
+    >
+      {route}
+    </Link>
+  );
+};
+
 export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <div>
       {/* Top Header */}
-      <div className="bg-gray-100  hidden sm:block">
+      <div className="bg-gray-100 hidden sm:block">
         <Container>
           <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
             {/* Left side - Contact info */}
@@ -179,29 +219,38 @@ export default function Navbar() {
                 </div>
 
                 <div>
-                  <h1 className="text-lg sm:text-2xl font-bold text-blue-600">
-                    Sanitär<span className="text-orange-500">+</span>
-                  </h1>
-                  <p className="text-xs sm:text-sm font-medium text-blue-600">
-                    NEUSS
-                  </p>
+                  {/* Desktop logo */}
+                  <div className="hidden sm:block">
+                    <h1 className="text-lg sm:text-2xl font-bold text-blue-600">
+                      Sanitär<span className="text-orange-500">+</span>
+                    </h1>
+                    <p className="text-xs sm:text-sm font-medium text-blue-600">
+                      NEUSS
+                    </p>
+                  </div>
+                  {/* Mobile logo - only show "Sanitär+" */}
+                  <div className="block sm:hidden">
+                    <h1 className="text-lg font-bold text-blue-600">
+                      Sanitär<span className="text-orange-500">+</span>
+                    </h1>
+                  </div>
                 </div>
               </Link>
             </div>
 
-            {/* Info Cards - Progressive visibility */}
-            {/* Mobile: Only emergency button */}
+            {/* 24h indicator - Mobile only */}
             <div className="block sm:hidden">
-              <Link
-                href="tel:017615706043"
-                className="flex items-center gap-2 bg-orange-500 text-white px-3 py-2 rounded text-sm"
-              >
-                <Phone size={16} />
-                <span className="font-semibold">Anrufen</span>
-              </Link>
+              <div className="bg-white border-2 border-white rounded-full p-2">
+                <div className="text-blue-600 text-xs font-bold flex items-center gap-1">
+                  <span>24h</span>
+                  <div className="w-3 h-3 border-2 border-blue-600 rounded-full relative">
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-blue-600 rounded-full"></div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Tablet: Show condensed version */}
+            {/* Info Cards - Tablet: Show condensed version */}
             <div className="hidden sm:flex lg:hidden items-center gap-3">
               <div className="flex items-center gap-2">
                 <div className="bg-orange-500 rounded-full p-2 flex-shrink-0">
@@ -337,85 +386,99 @@ export default function Navbar() {
             </div>
 
             {/* Mobile and Small Tablet Menu */}
-            <div className="md:hidden w-full flex justify-between items-center py-3">
-              <div className="flex items-center">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <button className="cursor-pointer text-white flex items-center gap-2">
-                      <Menu size={22} />
-                      <span className="text-sm font-medium">Menu</span>
-                    </button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-56" align="start">
-                    <DropdownMenuLabel>Navigation</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuGroup>
-                      <DropdownMenuItem asChild>
-                        <Link
-                          href="/"
-                          className="flex gap-2 text-base items-center w-full"
-                        >
-                          <Home className="w-4 h-4" />
-                          START
-                        </Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link
-                          href="/notdienst"
-                          className="flex gap-2 text-base items-center w-full"
-                        >
-                          <Phone className="w-4 h-4" />
-                          NOTDIENST
-                        </Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link
-                          href="/leistungen"
-                          className="flex gap-2 text-base items-center w-full"
-                        >
-                          <ShoppingBag className="w-4 h-4" />
-                          LEISTUNGEN
-                        </Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link
-                          href="/service"
-                          className="flex gap-2 text-base items-center w-full"
-                        >
-                          <Building2 className="w-4 h-4" />
-                          SERVICE
-                        </Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link
-                          href="/wc"
-                          className="flex gap-2 text-base items-center w-full"
-                        >
-                          <HelpCircle className="w-4 h-4" />
-                          WC
-                        </Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link
-                          href="/sos"
-                          className="flex gap-2 text-base items-center w-full"
-                        >
-                          <Phone className="w-4 h-4" />
-                          SOS
-                        </Link>
-                      </DropdownMenuItem>
-                    </DropdownMenuGroup>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
+            <div className="md:hidden w-full">
+              {/* Mobile Navigation Bar matching second image */}
+              <div className="bg-blue-600 border-t-2 border-blue-700">
+                <div className="flex">
+                  {/* Menu Button */}
+                  <div className="flex-1">
+                    <DropdownMenu
+                      open={isMobileMenuOpen}
+                      onOpenChange={setIsMobileMenuOpen}
+                    >
+                      <DropdownMenuTrigger asChild>
+                        <button className="w-full h-full cursor-pointer text-white flex items-center justify-center gap-2 py-4 hover:bg-blue-700 transition-colors">
+                          <Menu size={20} />
+                        </button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent
+                        className="w-[315px] h-[400px] fixed inset-0 z-50 bg-blue-600 border-none rounded-none shadow-none p-3 m-0"
+                        align="start"
+                        side="bottom"
+                        sideOffset={0}
+                        alignOffset={0}
+                      >
+                        {/* Full Screen Mobile Menu */}
+                        <div className="flex flex-col h-[400px]">
+                          {/* Header with Logo and Close Button */}
+                          <div className=" px-4 py-3 flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                              <button
+                                onClick={closeMobileMenu}
+                                className="w-6 h-6 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
+                                aria-label="Close menu"
+                              >
+                                <X size={16} />
+                              </button>
+                            </div>
+                          </div>
 
-              <Link
-                href="tel:017615706043"
-                className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded flex items-center gap-2 transition-colors"
-              >
-                <Phone size={16} />
-                <span className="font-semibold text-sm">Notdienst</span>
-              </Link>
+                          {/* Navigation Items */}
+                          <div className="flex-1 flex flex-col">
+                            <MobileNavigationLink
+                              route="START"
+                              path="/j"
+                              onClick={closeMobileMenu}
+                            />
+                            <MobileNavigationLink
+                              route="NOTDIENST"
+                              path="/notdienst"
+                              onClick={closeMobileMenu}
+                            />
+                            <MobileNavigationLink
+                              route="LEISTUNGEN"
+                              path="/leistungen"
+                              onClick={closeMobileMenu}
+                            />
+                            <MobileNavigationLink
+                              route="SERVICE"
+                              path="/service"
+                              onClick={closeMobileMenu}
+                            />
+                            <MobileNavigationLink
+                              route="WC"
+                              path="/wc"
+                              onClick={closeMobileMenu}
+                            />
+                            <MobileNavigationLink
+                              route="SOS"
+                              path="/sos"
+                              onClick={closeMobileMenu}
+                              className="flex-1 flex items-center"
+                            />
+                          </div>
+                        </div>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+
+                  {/* Emergency Call Button - Full width orange section */}
+                  <div className="flex-[3] bg-orange-500">
+                    <Link
+                      href="tel:017615706043"
+                      className="w-full h-full flex items-center justify-center py-4 text-white hover:bg-orange-600 transition-colors"
+                    >
+                      <Phone size={18} className="mr-3" />
+                      <div className="text-left">
+                        <div className="text-lg font-bold">
+                          0176 - 15 706 043
+                        </div>
+                        <div className="text-xs">✓ Notdienst: Neuss</div>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </Container>
