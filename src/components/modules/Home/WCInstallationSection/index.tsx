@@ -8,7 +8,7 @@ import image from "../../../../assets/image.png";
 
 export default function WCInstallationSection() {
   return (
-    <section className="py-16 lg:py-20 bg-white">
+    <section className="py-8 lg:py-20 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left Image */}
@@ -76,52 +76,112 @@ export default function WCInstallationSection() {
       </div>
 
       {/* Brand Partners Section */}
-      <div className="my-8">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="flex items-center justify-center lg:justify-between flex-wrap gap-4 lg:gap-12 opacity-60">
-            <div className="flex items-center justify-center h-9">
+      <div className="my-6 sm:my-8 md:my-10 lg:my-12 overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+          {/* Partners Grid */}
+          <div
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 
+              gap-4 sm:gap-6 md:gap-8 lg:gap-12 
+              items-center justify-items-center
+              opacity-60 hover:opacity-80 transition-opacity duration-300 mt-4"
+          >
+            {/* Partner 1 - Miele */}
+            <div
+              className="flex items-center justify-center 
+                h-9
+                w-full ]
+                group order-1"
+            >
               <Image
                 src={image1}
                 alt="Miele"
                 width={120}
                 height={60}
-                className="h-full w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                className="h-full w-auto object-contain 
+               grayscale group-hover:grayscale-0 
+               transition-all duration-300
+               max-w-full"
+                loading="lazy"
               />
             </div>
-            <div className="flex items-center justify-center h-9">
+
+            {/* Partner 2 - MTF Austria */}
+            <div
+              className="flex items-center justify-center 
+                h-9
+                w-full ]
+                group order-2"
+            >
               <Image
                 src={image2}
                 alt="MTF Austria - Innovation in the Air"
                 width={140}
                 height={60}
-                className="h-full w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                className="h-full w-auto object-contain 
+               grayscale group-hover:grayscale-0 
+               transition-all duration-300
+               max-w-full"
+                loading="lazy"
               />
             </div>
-            <div className="flex items-center justify-center h-9">
+
+            {/* Partner 3 - Bosch */}
+            <div
+              className="flex items-center justify-center 
+                h-9
+                w-full ]
+                group order-3 sm:order-3"
+            >
               <Image
                 src={image3}
                 alt="Bosch"
                 width={120}
                 height={60}
-                className="h-full w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                className="h-full w-auto object-contain 
+               grayscale group-hover:grayscale-0 
+               transition-all duration-300
+               max-w-full"
+                loading="lazy"
               />
             </div>
-            <div className="flex items-center justify-center h-9">
+
+            {/* Partner 4 - Hilti */}
+            <div
+              className="flex items-center justify-center 
+                h-9
+                w-full 
+                group order-4"
+            >
               <Image
                 src={image4}
                 alt="Hilti"
                 width={100}
                 height={60}
-                className="h-full w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                className="h-full w-auto object-contain 
+               grayscale group-hover:grayscale-0 
+               transition-all duration-300
+               max-w-full"
+                loading="lazy"
               />
             </div>
-            <div className="flex items-center justify-center h-9">
+
+            {/* Partner 5 - Additional Partner */}
+            <div
+              className="flex items-center justify-center 
+                h-9
+                w-full 
+                group order-5"
+            >
               <Image
                 src={image5}
-                alt="Hilti"
+                alt="Partner Brand"
                 width={100}
                 height={60}
-                className="h-full w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                className="h-full w-auto object-contain 
+               grayscale group-hover:grayscale-0 
+               transition-all duration-300
+               max-w-full"
+                loading="lazy"
               />
             </div>
           </div>

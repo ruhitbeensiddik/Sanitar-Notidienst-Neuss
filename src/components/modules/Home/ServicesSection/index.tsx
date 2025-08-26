@@ -4,10 +4,10 @@ import { Phone, Check, ArrowBigRight } from "lucide-react";
 export default function ServicesSection() {
   return (
     <section className="bg-[#0057B6] py-16 lg:py-20">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-col lg:flex-row">
+      <div className="max-w-7xl mx-auto ">
+        <div className="flex flex-col lg:flex-row ">
           {/* Left Content */}
-          <div className="lg:w-1/2 text-white pr-8">
+          <div className="lg:w-1/2 text-white pr-8 px-4">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6 leading-tight">
               Sanitär Notdienst
               <br />
