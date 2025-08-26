@@ -1,15 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Phone,
-  Mail,
-  User,
-  MapPin,
-  CheckCircle,
-  Send,
-  Search,
-} from "lucide-react";
+import { Phone, Mail, User, CheckCircle, Send, Search } from "lucide-react";
 
 const PlumbingServiceComponent = () => {
   const [formData, setFormData] = useState({

@@ -84,41 +84,47 @@ export default function Navbar() {
   return (
     <div>
       {/* Top Header */}
-      <div className="bg-gray-100 py-2 hidden md:block">
+      <div className="bg-gray-100  hidden sm:block">
         <Container>
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
             {/* Left side - Contact info */}
-            <div className="flex items-center gap-6 text-sm text-gray-600">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-base font-semibold text-gray-600">
               <Link
                 href="/einsatzgebiete"
                 className="flex items-center gap-1 hover:text-orange-500 transition-colors"
               >
-                <MapPin size={16} className="text-orange-500" />
-                <span>Einsatzgebiete</span>
+                <MapPin size={14} className="text-orange-500" />
+                <span className="text-xs sm:text-base font-semibold">
+                  Einsatzgebiete
+                </span>
               </Link>
               <Link
                 href="/kontakt"
                 className="flex items-center gap-1 hover:text-orange-500 transition-colors"
               >
-                <Mail size={16} className="text-orange-500" />
-                <span>Kontakt</span>
+                <Mail size={14} className="text-orange-500" />
+                <span className="text-xs sm:text-base font-semibold">
+                  Kontakt
+                </span>
               </Link>
               <Link
                 href="/login"
                 className="flex items-center gap-1 hover:text-orange-500 transition-colors"
               >
-                <User size={16} className="text-orange-500" />
-                <span>Login</span>
+                <User size={14} className="text-orange-500" />
+                <span className="text-xs sm:text-base font-semibold">
+                  Login
+                </span>
               </Link>
             </div>
 
             {/* Right side - Social media */}
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 py-3 px-3 bg-[#0057B6]">
               <Link
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-600 hover:bg-blue-700 text-white p-2 transition-colors"
+                className=" text-white p-1.5 sm:p-2 transition-colors"
                 aria-label="Facebook"
               >
                 <FacebookIcon />
@@ -127,7 +133,7 @@ export default function Navbar() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-700 hover:bg-blue-800 text-white p-2 transition-colors"
+                className=" text-white p-1.5 sm:p-2 transition-colors"
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon />
@@ -136,7 +142,7 @@ export default function Navbar() {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-red-600 hover:bg-red-700 text-white p-2 transition-colors"
+                className=" text-white p-1.5 sm:p-2 transition-colors"
                 aria-label="YouTube"
               >
                 <YouTubeIcon />
@@ -145,7 +151,7 @@ export default function Navbar() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-pink-600 hover:bg-pink-700 text-white p-2 transition-colors"
+                className=" text-white p-1.5 sm:p-2 transition-colors"
                 aria-label="Instagram"
               >
                 <InstagramIcon />
@@ -156,43 +162,72 @@ export default function Navbar() {
       </div>
 
       {/* Main Header */}
-      <div className="bg-white py-4">
+      <div className="bg-white py-2 sm:py-4">
         <Container>
           <div className="flex justify-between items-center">
             {/* Logo */}
             <div className="flex items-center">
               <Link href="/" className="flex items-center gap-2">
-                <div className="w-10 h-10  flex items-center justify-center overflow-hidden">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center overflow-hidden">
                   <Image
                     src={logo}
                     alt="product image"
-                    width={32} // match the container size
+                    width={32}
                     height={32}
                     className="rounded-full object-cover"
                   />
                 </div>
 
                 <div>
-                  <h1 className="text-2xl font-bold text-blue-600">
+                  <h1 className="text-lg sm:text-2xl font-bold text-blue-600">
                     Sanitär<span className="text-orange-500">+</span>
                   </h1>
-                  <p className="text-sm font-medium text-blue-600">NEUSS</p>
+                  <p className="text-xs sm:text-sm font-medium text-blue-600">
+                    NEUSS
+                  </p>
                 </div>
               </Link>
             </div>
 
-            {/* Info Cards - Hidden on mobile, shown on large screens */}
-            <div className="hidden lg:flex items-center gap-6">
-              {/* Opening Hours */}
-              <div className="flex items-center gap-3">
-                <div className="bg-orange-500 rounded-full p-3 flex-shrink-0">
-                  <Clock className="text-white" size={20} />
+            {/* Info Cards - Progressive visibility */}
+            {/* Mobile: Only emergency button */}
+            <div className="block sm:hidden">
+              <Link
+                href="tel:017615706043"
+                className="flex items-center gap-2 bg-orange-500 text-white px-3 py-2 rounded text-sm"
+              >
+                <Phone size={16} />
+                <span className="font-semibold">Anrufen</span>
+              </Link>
+            </div>
+
+            {/* Tablet: Show condensed version */}
+            <div className="hidden sm:flex lg:hidden items-center gap-3">
+              <div className="flex items-center gap-2">
+                <div className="bg-orange-500 rounded-full p-2 flex-shrink-0">
+                  <Phone className="text-white" size={16} />
                 </div>
                 <div>
-                  <p className="text-orange-500 font-semibold text-base">
+                  <p className="text-orange-500 font-semibold text-sm">
+                    Notfall
+                  </p>
+                  <p className="text-xs text-gray-600">0176 - 15 706 043</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop: Full info cards */}
+            <div className="hidden lg:flex items-center gap-4 xl:gap-6">
+              {/* Opening Hours */}
+              <div className="flex items-center gap-3">
+                <div className="bg-orange-500 rounded-full p-2 xl:p-3 flex-shrink-0">
+                  <Clock className="text-white" size={18} />
+                </div>
+                <div>
+                  <p className="text-orange-500 font-semibold text-sm xl:text-base">
                     Öffnungszeiten
                   </p>
-                  <p className="text-sm text-gray-600 whitespace-nowrap">
+                  <p className="text-xs xl:text-sm text-gray-600 whitespace-nowrap">
                     Montag - Sonntag / 0-24 Uhr
                   </p>
                 </div>
@@ -200,14 +235,14 @@ export default function Navbar() {
 
               {/* Emergency Number */}
               <div className="flex items-center gap-3">
-                <div className="bg-orange-500 rounded-full p-3 flex-shrink-0">
-                  <Phone className="text-white" size={20} />
+                <div className="bg-orange-500 rounded-full p-2 xl:p-3 flex-shrink-0">
+                  <Phone className="text-white" size={18} />
                 </div>
                 <div>
-                  <p className="text-orange-500 font-semibold text-base">
+                  <p className="text-orange-500 font-semibold text-sm xl:text-base">
                     Notfall-Nummer
                   </p>
-                  <p className="text-sm text-gray-600 whitespace-nowrap">
+                  <p className="text-xs xl:text-sm text-gray-600 whitespace-nowrap">
                     0176 - 15 706 043
                   </p>
                 </div>
@@ -215,27 +250,18 @@ export default function Navbar() {
 
               {/* Consultation */}
               <div className="flex items-center gap-3">
-                <div className="bg-orange-500 rounded-full p-3 flex-shrink-0">
-                  <User className="text-white" size={20} />
+                <div className="bg-orange-500 rounded-full p-2 xl:p-3 flex-shrink-0">
+                  <User className="text-white" size={18} />
                 </div>
                 <div>
-                  <p className="text-orange-500 font-semibold text-base">
+                  <p className="text-orange-500 font-semibold text-sm xl:text-base">
                     Beratung
                   </p>
-                  <p className="text-sm text-gray-600">Kostenloser Service</p>
+                  <p className="text-xs xl:text-sm text-gray-600">
+                    Kostenloser Service
+                  </p>
                 </div>
               </div>
-            </div>
-
-            {/* Mobile Emergency Number */}
-            <div className="lg:hidden">
-              <Link
-                href="tel:017615706043"
-                className="flex items-center gap-2 bg-orange-500 text-white px-4 py-2 rounded"
-              >
-                <Phone size={18} />
-                <span className="font-semibold">Anrufen</span>
-              </Link>
             </div>
           </div>
         </Container>
@@ -245,73 +271,79 @@ export default function Navbar() {
       <div className="bg-blue-600">
         <Container>
           <div className="flex justify-between items-center">
-            {/* Navigation Menu - Desktop */}
-            <nav className="hidden lg:block">
+            {/* Navigation Menu - Desktop and Large Tablets */}
+            <nav className="hidden md:block">
               <ul className="flex text-white">
                 <li>
                   <NavigationLink
                     route="START"
                     path="/"
-                    className="block px-6 py-4 hover:bg-blue-700 transition-colors font-medium"
+                    className="block px-3 lg:px-6 py-4 hover:bg-blue-700 transition-colors font-medium text-sm lg:text-base"
                   />
                 </li>
                 <li>
                   <NavigationLink
                     route="NOTDIENST"
                     path="/notdienst"
-                    className="block px-6 py-4 hover:bg-blue-700 transition-colors font-medium"
+                    className="block px-3 lg:px-6 py-4 hover:bg-blue-700 transition-colors font-medium text-sm lg:text-base"
                   />
                 </li>
                 <li>
                   <NavigationLink
                     route="LEISTUNGEN"
                     path="/leistungen"
-                    className="block px-6 py-4 hover:bg-blue-700 transition-colors font-medium"
+                    className="block px-3 lg:px-6 py-4 hover:bg-blue-700 transition-colors font-medium text-sm lg:text-base"
                   />
                 </li>
                 <li>
                   <NavigationLink
                     route="SERVICE"
                     path="/service"
-                    className="block px-6 py-4 hover:bg-blue-700 transition-colors font-medium"
+                    className="block px-3 lg:px-6 py-4 hover:bg-blue-700 transition-colors font-medium text-sm lg:text-base"
                   />
                 </li>
                 <li>
                   <NavigationLink
                     route="WC"
                     path="/wc"
-                    className="block px-6 py-4 hover:bg-blue-700 transition-colors font-medium"
+                    className="block px-3 lg:px-6 py-4 hover:bg-blue-700 transition-colors font-medium text-sm lg:text-base"
                   />
                 </li>
                 <li>
                   <NavigationLink
                     route="SOS"
                     path="/sos"
-                    className="block px-6 py-4 hover:bg-blue-700 transition-colors font-medium"
+                    className="block px-3 lg:px-6 py-4 hover:bg-blue-700 transition-colors font-medium text-sm lg:text-base"
                   />
                 </li>
               </ul>
             </nav>
 
             {/* Emergency Call Button - Desktop */}
-            <div className="bg-orange-500 px-8 py-4 text-white hidden lg:block">
-              <Link href="tel:017615706043" className="flex items-center gap-3">
-                <Phone size={24} />
+            <div className="bg-orange-500 px-4 lg:px-8 py-3 lg:py-4 text-white hidden md:block">
+              <Link
+                href="tel:017615706043"
+                className="flex items-center gap-2 lg:gap-3"
+              >
+                <Phone size={20} className="lg:hidden" />
+                <Phone size={24} className="hidden lg:block" />
                 <div>
-                  <p className="text-2xl font-bold">0176 - 15 706 043</p>
-                  <p className="text-sm">✓ Notdienst: Neuss</p>
+                  <p className="text-lg lg:text-2xl font-bold">
+                    0176 - 15 706 043
+                  </p>
+                  <p className="text-xs lg:text-sm">✓ Notdienst: Neuss</p>
                 </div>
               </Link>
             </div>
 
-            {/* Mobile Menu */}
-            <div className="lg:hidden w-full flex justify-between items-center py-4">
+            {/* Mobile and Small Tablet Menu */}
+            <div className="md:hidden w-full flex justify-between items-center py-3">
               <div className="flex items-center">
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <button className="cursor-pointer text-white flex items-center gap-2">
-                      <Menu size={24} />
-                      <span>Menu</span>
+                      <Menu size={22} />
+                      <span className="text-sm font-medium">Menu</span>
                     </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-56" align="start">
@@ -379,10 +411,10 @@ export default function Navbar() {
 
               <Link
                 href="tel:017615706043"
-                className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded flex items-center gap-2 transition-colors"
+                className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded flex items-center gap-2 transition-colors"
               >
-                <Phone size={18} />
-                <span className="font-semibold">Notdienst</span>
+                <Phone size={16} />
+                <span className="font-semibold text-sm">Notdienst</span>
               </Link>
             </div>
           </div>
