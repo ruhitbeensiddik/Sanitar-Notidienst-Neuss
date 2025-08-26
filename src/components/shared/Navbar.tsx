@@ -22,7 +22,6 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import logo from "../../assets/jungkind-iconotdienst_sanitaer_favicon_1.png";
@@ -82,31 +81,8 @@ const NavigationLink = ({
 };
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 200) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <div
-      className={`${
-        isScrolled
-          ? "lg:fixed lg:top-0 lg:left-0 lg:w-full lg:bg-white lg:z-50 lg:shadow-md"
-          : ""
-      }`}
-    >
+    <div>
       {/* Top Header */}
       <div className="bg-gray-100 py-2 hidden md:block">
         <Container>
