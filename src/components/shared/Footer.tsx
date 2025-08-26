@@ -36,210 +36,335 @@ const Footer = () => {
       initial={{ height: 0 }}
       whileInView={{ height: "auto" }}
       transition={{ duration: 1 }}
-      className="bg-orange-500 text-white px-6 py-12"
+      className="bg-orange-500 text-white px-4 sm:px-6 py-8 sm:py-12"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-        {/* Logo & Description */}
-        <div className="text-left lg:pr-8">
-          <Link href="/">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="flex items-center">
-                <div className="flex items-center justify-center">
-                  <Image
-                    src={logo}
-                    alt="product image"
-                    width={150}
-                    height={150}
-                    className="w-[150px] h-auto"
-                  />
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
+          {/* Logo & Description */}
+          <div className="text-center md:text-left lg:pr-8 md:col-span-2 lg:col-span-1">
+            <Link href="/">
+              <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
+                <div className="flex items-center">
+                  <div className="flex items-center justify-center">
+                    <Image
+                      src={logo}
+                      alt="product image"
+                      width={150}
+                      height={150}
+                      className="w-[120px] sm:w-[150px] h-auto"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
-          <p className="text-white/90 leading-relaxed my-6">
-            Der preiswerte Sanitär Notdienst Neuss bewertet von vielen
-            zufriedenen Kunden in Ihrer Region. Schreiben auch Sie eine
-            Rezension über Ihre Erfahrung mit dem Klempner Service.
-          </p>
-
-          {/* Services List */}
-          <ul className="space-y-3 text-sm">
-            <li className="flex items-center gap-2">
-              <Zap size={16} />
-              <span>Elektronotdienst in Neuss</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Wrench size={16} />
-              <span>Kammerjäger in Neuss</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Key size={16} />
-              <span>Schlüsseldienst Neuss</span>
-            </li>
-          </ul>
-        </div>
-
-        {/* Neuss Section */}
-        <div>
-          <h2 className="font-bold text-lg mb-4 relative">
-            Neuss
-            <div className="w-12 h-0.5 bg-white mt-2"></div>
-          </h2>
-          <ul className="flex flex-col gap-3 text-sm">
-            <li>
-              <Link href="/" className="hover:text-white/80 transition-colors">
-                Startseite
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/ueber-uns"
-                className="hover:text-white/80 transition-colors"
-              >
-                Über uns
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/impressum"
-                className="hover:text-white/80 transition-colors"
-              >
-                Impressum
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/datenschutz"
-                className="hover:text-white/80 transition-colors"
-              >
-                Datenschutz
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/partner"
-                className="hover:text-white/80 transition-colors"
-              >
-                Partner werden
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/faq"
-                className="hover:text-white/80 transition-colors"
-              >
-                FAQ
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Regionen Section */}
-        <div>
-          <h2 className="font-bold text-lg mb-4 relative">
-            Regionen
-            <div className="w-12 h-0.5 bg-white mt-2"></div>
-          </h2>
-          <ul className="flex flex-col gap-3 text-sm">
-            <li>
-              <Link
-                href="/berlin"
-                className="hover:text-white/80 transition-colors"
-              >
-                Berlin
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/hamburg"
-                className="hover:text-white/80 transition-colors"
-              >
-                Hamburg
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/koeln"
-                className="hover:text-white/80 transition-colors"
-              >
-                Köln
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/muenchen"
-                className="hover:text-white/80 transition-colors"
-              >
-                München
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/frankfurt"
-                className="hover:text-white/80 transition-colors"
-              >
-                Frankfurt
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/stuttgart"
-                className="hover:text-white/80 transition-colors"
-              >
-                Stuttgart
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Contact & Social */}
-        <div>
-          <h2 className="font-bold text-lg mb-4 relative">
-            Folgen Sie uns
-            <div className="w-12 h-0.5 bg-white mt-2"></div>
-          </h2>
-
-          {/* Social Media */}
-          <div className="flex gap-3 mb-8">
-            <Link
-              href="https://facebook.com"
-              className="bg-white/20 hover:bg-white/30 p-2 rounded transition-all duration-300"
-            >
-              <FacebookIcon />
             </Link>
-            <Link
-              href="https://youtube.com"
-              className="bg-white/20 hover:bg-white/30 p-2 rounded transition-all duration-300"
-            >
-              <YouTubeIcon />
-            </Link>
-            <Link
-              href="https://instagram.com"
-              className="bg-white/20 hover:bg-white/30 p-2 rounded transition-all duration-300"
-            >
-              <InstagramIcon />
-            </Link>
-            <Link
-              href="https://linkedin.com"
-              className="bg-white/20 hover:bg-white/30 p-2 rounded transition-all duration-300"
-            >
-              <LinkedInIcon />
-            </Link>
+            <p className="text-white/90 leading-relaxed my-4 sm:my-6 text-sm sm:text-base">
+              Der preiswerte Sanitär Notdienst Neuss bewertet von vielen
+              zufriedenen Kunden in Ihrer Region. Schreiben auch Sie eine
+              Rezension über Ihre Erfahrung mit dem Klempner Service.
+            </p>
+
+            {/* Services List */}
+            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base">
+              <li className="flex items-center justify-start md:justify-start gap-2">
+                <Zap size={16} />
+                <span>Elektronotdienst in Neuss</span>
+              </li>
+              <li className="flex items-center justify-start md:justify-start gap-2">
+                <Wrench size={16} />
+                <span>Kammerjäger in Neuss</span>
+              </li>
+              <li className="flex items-center justify-start md:justify-start gap-2">
+                <Key size={16} />
+                <span>Schlüsseldienst Neuss</span>
+              </li>
+            </ul>
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-3 text-sm">
-            <div className="flex items-center gap-2">
-              <MapPin size={16} />
-              <span className="font-semibold">Neuss</span>
+          {/* Navigation sections - Special layout for small screens */}
+          <div className="md:hidden">
+            <div className="flex justify-around">
+              {/* Neuss Section */}
+              <div className="text-center">
+                <h2 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 relative">
+                  Neuss
+                  <div className="w-8 sm:w-12 h-0.5 bg-white mt-2 mx-auto"></div>
+                </h2>
+                <ul className="flex flex-col gap-2 sm:gap-3 text-sm sm:text-base">
+                  <li>
+                    <Link
+                      href="/"
+                      className="hover:text-white/80 transition-colors"
+                    >
+                      Startseite
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/ueber-uns"
+                      className="hover:text-white/80 transition-colors"
+                    >
+                      Über uns
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/impressum"
+                      className="hover:text-white/80 transition-colors"
+                    >
+                      Impressum
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/datenschutz"
+                      className="hover:text-white/80 transition-colors"
+                    >
+                      Datenschutz
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/partner"
+                      className="hover:text-white/80 transition-colors"
+                    >
+                      Partner werden
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/faq"
+                      className="hover:text-white/80 transition-colors"
+                    >
+                      FAQ
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Regionen Section */}
+              <div className="text-center">
+                <h2 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 relative">
+                  Regionen
+                  <div className="w-8 sm:w-12 h-0.5 bg-white mt-2 mx-auto"></div>
+                </h2>
+                <ul className="flex flex-col gap-2 sm:gap-3 text-sm sm:text-base">
+                  <li>
+                    <Link
+                      href="/berlin"
+                      className="hover:text-white/80 transition-colors"
+                    >
+                      Berlin
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/hamburg"
+                      className="hover:text-white/80 transition-colors"
+                    >
+                      Hamburg
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/koeln"
+                      className="hover:text-white/80 transition-colors"
+                    >
+                      Köln
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/muenchen"
+                      className="hover:text-white/80 transition-colors"
+                    >
+                      München
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/frankfurt"
+                      className="hover:text-white/80 transition-colors"
+                    >
+                      Frankfurt
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/stuttgart"
+                      className="hover:text-white/80 transition-colors"
+                    >
+                      Stuttgart
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Phone size={16} />
-              <span className="font-semibold">0176 / 15 706 043</span>
+          </div>
+
+          {/* Navigation sections - Normal layout for medium+ screens */}
+          <div className="hidden md:block">
+            <h2 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 relative text-center md:text-left">
+              Neuss
+              <div className="w-8 sm:w-12 h-0.5 bg-white mt-2 mx-auto md:mx-0"></div>
+            </h2>
+            <ul className="flex flex-col gap-2 sm:gap-3 text-sm sm:text-base text-center md:text-left">
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-white/80 transition-colors"
+                >
+                  Startseite
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/ueber-uns"
+                  className="hover:text-white/80 transition-colors"
+                >
+                  Über uns
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/impressum"
+                  className="hover:text-white/80 transition-colors"
+                >
+                  Impressum
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/datenschutz"
+                  className="hover:text-white/80 transition-colors"
+                >
+                  Datenschutz
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/partner"
+                  className="hover:text-white/80 transition-colors"
+                >
+                  Partner werden
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/faq"
+                  className="hover:text-white/80 transition-colors"
+                >
+                  FAQ
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="hidden md:block">
+            <h2 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 relative text-center md:text-left">
+              Regionen
+              <div className="w-8 sm:w-12 h-0.5 bg-white mt-2 mx-auto md:mx-0"></div>
+            </h2>
+            <ul className="flex flex-col gap-2 sm:gap-3 text-sm sm:text-base text-center md:text-left">
+              <li>
+                <Link
+                  href="/berlin"
+                  className="hover:text-white/80 transition-colors"
+                >
+                  Berlin
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/hamburg"
+                  className="hover:text-white/80 transition-colors"
+                >
+                  Hamburg
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/koeln"
+                  className="hover:text-white/80 transition-colors"
+                >
+                  Köln
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/muenchen"
+                  className="hover:text-white/80 transition-colors"
+                >
+                  München
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/frankfurt"
+                  className="hover:text-white/80 transition-colors"
+                >
+                  Frankfurt
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/stuttgart"
+                  className="hover:text-white/80 transition-colors"
+                >
+                  Stuttgart
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact & Social */}
+          <div className=" md:text-left">
+            <h2 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 relative">
+              Folgen Sie uns
+              <div className="w-8 sm:w-12 h-0.5 bg-white mt-2 md:mx-0"></div>
+            </h2>
+
+            {/* Social Media */}
+            <div className="flex gap-2 sm:gap-3 mb-6 sm:mb-8 justify-start md:justify-start">
+              <Link
+                href="https://facebook.com"
+                className="bg-white/20 hover:bg-white/30 p-2 rounded transition-all duration-300"
+              >
+                <FacebookIcon />
+              </Link>
+              <Link
+                href="https://youtube.com"
+                className="bg-white/20 hover:bg-white/30 p-2 rounded transition-all duration-300"
+              >
+                <YouTubeIcon />
+              </Link>
+              <Link
+                href="https://instagram.com"
+                className="bg-white/20 hover:bg-white/30 p-2 rounded transition-all duration-300"
+              >
+                <InstagramIcon />
+              </Link>
+              <Link
+                href="https://linkedin.com"
+                className="bg-white/20 hover:bg-white/30 p-2 rounded transition-all duration-300"
+              >
+                <LinkedInIcon />
+              </Link>
             </div>
-            <div className="flex items-center gap-2">
-              <Copyright size={16} />
-              <span>2023 Notdienst Sanitär</span>
+
+            {/* Contact Info */}
+            <div className="space-y-2 sm:space-y-3 text-sm sm:text-base">
+              <div className="flex items-center gap-2 justify-start md:justify-start">
+                <MapPin size={16} />
+                <span className="font-semibold">Neuss</span>
+              </div>
+              <div className="flex items-center gap-2 justify-start md:justify-start">
+                <Phone size={16} />
+                <span className="font-semibold">0176 / 15 706 043</span>
+              </div>
+              <div className="flex items-center gap-2 justify-start md:justify-start">
+                <Copyright size={16} />
+                <span>2023 Notdienst Sanitär</span>
+              </div>
             </div>
           </div>
         </div>
