@@ -279,8 +279,16 @@ const PlumbingServiceComponent = () => {
             </div>
 
             {/* Map placeholder */}
-            <div className="mt-6 bg-gray-700 h-64 rounded flex items-center justify-center">
-              <MapPin className="w-12 h-12 text-gray-400" />
+            <div className="mt-6 bg-gray-700 h-64 rounded overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999658168279!2d2.2922926156744853!3d48.85837307928715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdeb51b9a6f%3A0x39c0e45a86e9f9e4!2sEiffelturm!5e0!3m2!1sde!2sde!4v1677767890123!5m2!1sde!2sde"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </div>
