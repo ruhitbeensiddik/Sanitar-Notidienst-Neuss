@@ -3,6 +3,8 @@ import HeroBanner from "../../../components/modules/Home/Banner";
 import SanitarNotdienstSection from "../../../components/modules/Home/SanitarNotdienstSection";
 import ServicesSection from "../../../components/modules/Home/ServicesSection";
 import WCInstallationSection from "../../../components/modules/Home/WCInstallationSection";
+import EmergencyServiceSection from "../../../components/modules/Home/EmergencyServiceSection";
+import DrainCleaningSection from "../../../components/modules/Home/DrainCleaningSection";
 
 const HomePage = () => {
   return (
@@ -18,6 +20,8 @@ const HomePage = () => {
       <ServicesSection />
 
       <WCInstallationSection />
+      <EmergencyServiceSection />
+      <DrainCleaningSection />
     </div>
   );
 };
