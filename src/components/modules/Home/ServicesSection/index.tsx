@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, Check } from "lucide-react";
+import { Phone, Check, ArrowBigRight } from "lucide-react";
 
 export default function ServicesSection() {
   return (
@@ -30,7 +30,9 @@ export default function ServicesSection() {
 
             <div className="mb-8">
               <button className="text-white hover:text-orange-300 transition-colors flex items-center gap-2">
-                <span className="text-lg">▶</span>
+                <span className="text-lg">
+                  <ArrowBigRight />
+                </span>
                 <span>Mehr lesen</span>
               </button>
             </div>
