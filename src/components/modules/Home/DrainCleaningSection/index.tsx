@@ -9,7 +9,7 @@ export default function DrainCleaningSection() {
       <div className="container max-w-6xl mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left Content */}
-          <div className="flex-1 max-w-2xl">
+          <div className="flex-1 max-w-3xl">
             {/* Section Tag */}
             <div className="inline-flex items-center gap-2 mb-6">
               <span className="text-orange-500 font-semibold text-lg">
@@ -65,7 +65,7 @@ export default function DrainCleaningSection() {
           </div>
 
           {/* Right Image */}
-          <div className="flex-1 max-w-lg">
+          <div className="flex-1 max-w-[330px]">
             <div className="relative">
               <Image
                 src={pipeImage}

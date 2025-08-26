@@ -8,6 +8,7 @@ import DrainCleaningSection from "../../../components/modules/Home/DrainCleaning
 import MaintenanceRepairSection from "../../../components/modules/Home/MaintenanceRepairSection";
 import DrainCleaning24hSection from "../../../components/modules/Home/DrainCleaning24hSection";
 import PlumbingServiceComponent from "../../../components/modules/Home/PlumbingServiceComponent";
+import PlumberEmergency from "../../../components/modules/Home/PlumberEmergency";
 
 const HomePage = () => {
   return (
@@ -23,10 +24,12 @@ const HomePage = () => {
       <ServicesSection />
 
       <WCInstallationSection />
+      <PlumberEmergency />
       <EmergencyServiceSection />
       <DrainCleaningSection />
       <MaintenanceRepairSection />
       <DrainCleaning24hSection />
+      {/* testimonial */}
       <PlumbingServiceComponent />
     </div>
   );
