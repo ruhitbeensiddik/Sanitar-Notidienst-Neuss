@@ -14,26 +14,90 @@ import ServiceSection from "../../../components/modules/Home/ServiceSection";
 
 const HomePage = () => {
   return (
-    <div className="">
-      <div className="max-w-[1650px] mx-auto">
-        <HeroBanner />
-      </div>
+    <div className="min-h-screen overflow-x-hidden">
+      {/* Hero Banner Section */}
+      <section className="w-full overflow-hidden">
+        <div className="max-w-[1650px] mx-auto px-2 sm:px-4">
+          <HeroBanner />
+        </div>
+      </section>
 
-      <div className="max-w-[1650px] mx-auto">
-        <SanitarNotdienstSection />
-      </div>
+      {/* Sanitar Notdienst Section */}
+      <section className="w-full overflow-hidden">
+        <div className="max-w-[1650px] mx-auto px-2 sm:px-4">
+          <SanitarNotdienstSection />
+        </div>
+      </section>
 
-      <ServicesSection />
+      {/* Services Section */}
+      <section className="w-full overflow-hidden bg-gray-50">
+        <div className="max-w-[1650px] mx-auto px-2 sm:px-4">
+          <ServicesSection />
+        </div>
+      </section>
 
-      <WCInstallationSection />
-      <PlumberEmergency />
-      <ServiceSection />
-      <EmergencyServiceSection />
-      <DrainCleaningSection />
-      <MaintenanceRepairSection />
-      <DrainCleaning24hSection />
-      <Testimonials />
-      <PlumbingServiceComponent />
+      {/* WC Installation Section */}
+      <section className="w-full overflow-hidden">
+        <div className="max-w-[1650px] mx-auto px-2 sm:px-4">
+          <WCInstallationSection />
+        </div>
+      </section>
+
+      {/* Plumber Emergency Section */}
+      <section className="w-full overflow-hidden bg-blue-50">
+        <div className="max-w-[1650px] mx-auto px-2 sm:px-4">
+          <PlumberEmergency />
+        </div>
+      </section>
+
+      {/* Service Section */}
+      <section className="w-full overflow-hidden">
+        <div className="max-w-[1650px] mx-auto px-2 sm:px-4">
+          <ServiceSection />
+        </div>
+      </section>
+
+      {/* Emergency Service Section */}
+      <section className="w-full overflow-hidden bg-red-50">
+        <div className="max-w-[1650px] mx-auto px-2 sm:px-4">
+          <EmergencyServiceSection />
+        </div>
+      </section>
+
+      {/* Drain Cleaning Section */}
+      <section className="w-full overflow-hidden">
+        <div className="max-w-[1650px] mx-auto px-2 sm:px-4">
+          <DrainCleaningSection />
+        </div>
+      </section>
+
+      {/* Maintenance Repair Section */}
+      <section className="w-full overflow-hidden bg-gray-50">
+        <div className="max-w-[1650px] mx-auto px-2 sm:px-4">
+          <MaintenanceRepairSection />
+        </div>
+      </section>
+
+      {/* Drain Cleaning 24h Section */}
+      <section className="w-full overflow-hidden">
+        <div className="max-w-[1650px] mx-auto px-2 sm:px-4">
+          <DrainCleaning24hSection />
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="w-full overflow-hidden bg-blue-600 text-white">
+        <div className="max-w-[1650px] mx-auto px-2 sm:px-4">
+          <Testimonials />
+        </div>
+      </section>
+
+      {/* Plumbing Service Component */}
+      <section className="w-full overflow-hidden">
+        <div className="max-w-[1650px] mx-auto px-2 sm:px-4">
+          <PlumbingServiceComponent />
+        </div>
+      </section>
     </div>
   );
 };
