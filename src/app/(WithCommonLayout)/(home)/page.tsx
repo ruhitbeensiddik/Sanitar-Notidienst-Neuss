@@ -15,7 +15,7 @@ import ServiceSection from "../../../components/modules/Home/ServiceSection";
 const HomePage = () => {
   return (
     <div className="min-h-screen overflow-x-hidden">
-      <div className="max-w-[1650px] mx-auto">
+      <div className="max-w-[1820px] mx-auto">
         <HeroBanner />
       </div>
 

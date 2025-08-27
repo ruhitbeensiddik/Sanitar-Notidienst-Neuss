@@ -5,13 +5,16 @@ import bannerImage from "../../../../assets/banner.jpg";
 
 export default function HeroBanner() {
   return (
-    <section className="relative min-h-[500px] sm:min-h-[600px] md:min-h-[700px] lg:min-h-[800px] xl:min-h-[900px] overflow-hidden">
+    // ✅ section now full width
+    <section className="relative w-full min-h-[500px] sm:min-h-[600px] md:min-h-[700px] lg:min-h-[800px] xl:min-h-[900px] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
           src={bannerImage}
           alt="Professional plumber in blue uniform with tools"
-          className="w-full h-full object-cover object-center"
+          fill
+          priority
+          className="object-cover object-center"
         />
       </div>
 
@@ -19,8 +22,10 @@ export default function HeroBanner() {
       <div className="absolute inset-0 bg-black/20 sm:bg-black/10 md:bg-transparent"></div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-        <div className="w-full flex justify-center lg:justify-start">
+      <div className="relative z-10 h-full flex items-center">
+        {/* ✅ removed container restriction from parent, 
+             wrapped only text part in container */}
+        <div className="w-full flex justify-center lg:justify-start px-4 sm:px-6 lg:px-8">
           <div
             className="text-center lg:text-left max-w-2xl xl:max-w-3xl 
                           mt-8 sm:mt-16 md:mt-24 lg:mt-32 xl:mt-48 
@@ -113,24 +118,7 @@ export default function HeroBanner() {
         className="absolute bottom-0 left-0 right-0 
                       bg-gradient-to-t from-[#0057B6] to-[#0057B6]/80 
                       text-white p-3 sm:p-4 lg:hidden"
-      >
-        <div className="container mx-auto px-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Phone size={18} className="text-orange-400" />
-            <span className="font-semibold text-sm sm:text-base">
-              Notfall? Sofort anrufen:
-            </span>
-          </div>
-          <Link
-            href="tel:017615706043"
-            className="bg-orange-500 hover:bg-orange-600 
-                      text-white font-bold px-4 py-2 rounded-full 
-                      transition-colors text-sm sm:text-base"
-          >
-            0176 - 15 706 043
-          </Link>
-        </div>
-      </div>
+      ></div>
     </section>
   );
 }
