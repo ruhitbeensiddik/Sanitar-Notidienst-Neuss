@@ -1,31 +1,16 @@
 "use client";
-import {
-  Building2,
-  HelpCircle,
-  Home,
-  Mail,
-  MapPin,
-  Phone,
-  ShoppingBag,
-  Clock,
-  User,
-  Menu,
-  X,
-} from "lucide-react";
+import { Mail, MapPin, Phone, User, Menu, X } from "lucide-react";
 import Container from "./Container";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import logo from "../../assets/jungkind-iconotdienst_sanitaer_favicon_1.png";
+import logo2ForSmall from "../../assets/jungkind-iconss_logo_NEU_normal.svg";
 import { useState } from "react";
 
 // Social media icons as React components
@@ -208,19 +193,18 @@ export default function Navbar() {
             {/* Logo */}
             <div className="flex items-center">
               <Link href="/" className="flex items-center gap-2">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center overflow-hidden">
-                  <Image
-                    src={logo}
-                    alt="product image"
-                    width={32}
-                    height={32}
-                    className="rounded-full object-cover"
-                  />
-                </div>
-
-                <div>
-                  {/* Desktop logo */}
-                  <div className="hidden sm:block">
+                {/* Logo for large screens */}
+                <div className="hidden sm:flex items-center gap-2">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center overflow-hidden">
+                    <Image
+                      src={logo}
+                      alt="Sanitär+ Logo"
+                      width={64}
+                      height={64}
+                      className="rounded-full object-cover"
+                    />
+                  </div>
+                  <div>
                     <h1 className="text-lg sm:text-2xl font-bold text-blue-600">
                       Sanitär<span className="text-orange-500">+</span>
                     </h1>
@@ -228,24 +212,30 @@ export default function Navbar() {
                       NEUSS
                     </p>
                   </div>
-                  {/* Mobile logo - only show "Sanitär+" */}
-                  <div className="block sm:hidden">
-                    <h1 className="text-lg font-bold text-blue-600">
-                      Sanitär<span className="text-orange-500">+</span>
-                    </h1>
-                  </div>
+                </div>
+
+                {/* Logo for small screens */}
+                <div className="block sm:hidden">
+                  <Image
+                    src={logo2ForSmall}
+                    alt="Sanitär+ Logo"
+                    width={120}
+                    height={40}
+                    className="object-contain"
+                  />
                 </div>
               </Link>
             </div>
 
             {/* 24h indicator - Mobile only */}
             <div className="block sm:hidden">
-              <div className="bg-white border-2 border-white rounded-full p-2">
-                <div className="text-blue-600 text-xs font-bold flex items-center gap-1">
+              <div className="w-12 h-12 bg-[#0057B6] rounded-full flex flex-col items-center justify-center">
+                <div className="text-white text-xs font-bold flex items-center gap-1">
                   <span>24h</span>
-                  <div className="w-3 h-3 border-2 border-blue-600 rounded-full relative">
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-blue-600 rounded-full"></div>
-                  </div>
+                </div>
+                <div className="w-3 h-3 border border-white rounded-full relative mt-1">
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-0.5 h-1.5 bg-white"></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-0.5 bg-white"></div>
                 </div>
               </div>
             </div>
@@ -258,7 +248,7 @@ export default function Navbar() {
                 </div>
                 <div>
                   <p className="text-orange-500 font-semibold text-sm">
-                    Notfall
+                    Notfall-Nummer
                   </p>
                   <p className="text-xs text-gray-600">0176 - 15 706 043</p>
                 </div>
@@ -269,8 +259,14 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-4 xl:gap-6">
               {/* Opening Hours */}
               <div className="flex items-center gap-3">
-                <div className="bg-orange-500 rounded-full p-2 xl:p-3 flex-shrink-0">
-                  <Clock className="text-white" size={18} />
+                <div className="bg-orange-500 rounded-full p-2 xl:p-3 flex-shrink-0 relative">
+                  <div className="w-5 h-5 xl:w-6 xl:h-6 border-2 border-white rounded-full relative">
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-0.5 h-2 bg-white"></div>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1.5 h-0.5 bg-white"></div>
+                  </div>
+                  <span className="absolute -top-1 -right-1 text-white text-xs font-bold">
+                    24h
+                  </span>
                 </div>
                 <div>
                   <p className="text-orange-500 font-semibold text-sm xl:text-base">
@@ -317,7 +313,7 @@ export default function Navbar() {
       </div>
 
       {/* Navigation Bar */}
-      <div className="bg-blue-600">
+      <div className="bg-[#0057B6]">
         <Container>
           <div className="flex justify-between items-center">
             {/* Navigation Menu - Desktop and Large Tablets */}
@@ -388,7 +384,7 @@ export default function Navbar() {
             {/* Mobile and Small Tablet Menu */}
             <div className="md:hidden w-full">
               {/* Mobile Navigation Bar matching second image */}
-              <div className="bg-blue-600 border-t-2 border-blue-700">
+              <div className="bg-[#0057B6] border-t-2 border-blue-700">
                 <div className="flex">
                   {/* Menu Button */}
                   <div className="flex-1">
@@ -402,7 +398,7 @@ export default function Navbar() {
                         </button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent
-                        className="w-[315px] h-[400px] fixed inset-0 z-50 bg-blue-600 border-none rounded-none shadow-none p-3 m-0"
+                        className="w-[315px] h-[400px] fixed inset-0 z-50 bg-[#0057B6] border-none rounded-none shadow-none p-3 m-0"
                         align="start"
                         side="bottom"
                         sideOffset={0}
@@ -427,7 +423,7 @@ export default function Navbar() {
                           <div className="flex-1 flex flex-col">
                             <MobileNavigationLink
                               route="START"
-                              path="/j"
+                              path="/"
                               onClick={closeMobileMenu}
                             />
                             <MobileNavigationLink
