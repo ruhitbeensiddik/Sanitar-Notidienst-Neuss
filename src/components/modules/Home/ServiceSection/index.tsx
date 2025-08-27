@@ -1,11 +1,17 @@
+"use client";
 import React from "react";
+import Image from "next/image";
+import serviceImage from "../../../../assets/image-removebg-preview.png";
+import serviceImage2 from "../../../../assets/image-removebg-preview (1).png";
+import serviceImage3 from "../../../../assets/image-removebg-preview (2).png";
+import serviceImage4 from "../../../../assets/image-removebg-preview (3).png";
 
 const services = [
   {
     title: "ROHRREINIGUNG",
     description:
       "Sanitär Notdienst bietet Ihnen eine professionelle Rohrreinigung zu fairen Preisen an! Erfahrene Handwerker sind schnell vor Ort und beseitigen alle Arten von Verstopfungen.",
-    icon: "💧",
+    image: serviceImage,
     backText:
       "Sanitär Notdienst bietet Ihnen eine professionelle Rohrreinigung zu fairen Preisen an! Erfahrene Handwerker sind schnell vor Ort und beseitigen alle Arten von Verstopfungen.",
   },
@@ -13,7 +19,7 @@ const services = [
     title: "WC REPARATUR",
     description:
       "Wir vermitteln Ihnen den richtigen Installateur, der sich bestens mit Installation und Reparatur von Waschbecken, Badewannen, WCs und Sanitär Anlagen auskennt.",
-    icon: "🚽",
+    image: serviceImage2,
     backText:
       "Wir vermitteln Ihnen den richtigen Installateur, der sich bestens mit der Installation und Reparatur von Waschbecken, Badewannen und auch WCs und Sanitär Anlagen auskennt.",
   },
@@ -21,7 +27,7 @@ const services = [
     title: "ROHRBRUCH",
     description:
       "Professionelle Fachmänner helfen bei Rohrbruch Notdienst. Per Leckortung ermitteln sie das beschädigte Rohr und tauschen es bei Bedarf aus.",
-    icon: "🔧",
+    image: serviceImage3,
     backText:
       "Ebenfalls helfen professionelle Fachmänner bei einem Rohrbruch Notdienst. Per Leckortung ermitteln sie das beschädigte Rohr und falls nötig ist, tauschen es aus.",
   },
@@ -29,7 +35,7 @@ const services = [
     title: "WASSERSCHADEN",
     description:
       "Droht ein Wasserschaden in der Wohnung oder gar eine Überschwemmung? Klempner beheben Wasserschaden, sodass Sie sich wieder wohl fühlen können.",
-    icon: "💦",
+    image: serviceImage4,
     backText:
       "Droht ein Wasserschaden in der Wohnung oder gar eine Überschwemmung? Klempner beheben Wasserschaden, sodass Sie sich wieder wohl in Ihrem zuhause fühlen können.",
   },
@@ -49,7 +55,14 @@ export default function ServiceSection() {
             <div className="relative  h-96 shadow-xl transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] my-7">
               {/* Front Side */}
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#FF7E00] text-white p-6 rounded-md [backface-visibility:hidden]">
-                <div className="text-5xl mb-4">{service.icon}</div>
+                <div className="mb-4 size-28 relative">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
                 <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
                 <p className="text-sm leading-relaxed text-center">
                   {service.description}
